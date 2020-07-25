@@ -13,7 +13,7 @@ class PostsController < ApplicationController
         # render plain: params[:post].inspect
         @post = Post.new(post_params)
         if @post.save
-            flash[:notice] = "Post was successfull created"
+            flash[:success] = "Post was successfull created"
             redirect_to post_path(@post)
         else 
             render 'new'
@@ -28,17 +28,17 @@ class PostsController < ApplicationController
 
     def update
         if @post.update(post_params)
-            flash[:notice] = "Post was updated"
+            flash[:success] = "Post was updated"
             redirect_to post_path(@post)
         else 
-            flash[:notice] = "Post was not updated"
+            flash[:success] = "Post was not updated"
             render 'edit'
         end
     end
 
     def destroy
         @post.destroy
-        flash[:notice] = "Post was deleted"
+        flash[:success] = "Post was deleted"
         redirect_to posts_path
     end
 
