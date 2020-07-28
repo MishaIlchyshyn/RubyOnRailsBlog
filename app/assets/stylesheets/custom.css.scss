@@ -40,3 +40,13 @@ $navbar-default-bg: black;
   list-style: none;
   padding-left: 0;
 }
+.navbar-default .navbar-nav > li > a {
+  color: #cccccc;
+  transition: 0.5s;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  color: #fffbfb;
+}
+.navbar {
+  border-radius: 0;
+}
