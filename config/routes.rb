@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  
-  devise_for :users
-  get 'persons/profile'
+
   root 'pages#index'
 
-  get 'about', to: 'pages#about'
+  resources :posts do
+    resources :comments
+  end
+  
+  devise_for :users
+
+  get 'persons/profile'
 
   get 'persons/profile', as: 'user_root'
 
-  resources :posts
+  get 'about', to: 'pages#about'
 
 end
