@@ -1,0 +1,16 @@
+<h2 align="center">Title: <%= @post.title %></h2>
+<div class="well col-xs-8 col-xs-offset-2"> 
+    <h4 class="center"><strong>Description:</strong></h4>
+    <hr/>
+    <%= simple_format(@post.description) %>
+
+<%= link_to 'Back', posts_path, class: "btn btn-xs btn-success" %>
+<%= link_to 'Edit', edit_post_path(@post), class: "btn btn-xs btn-primary" %>
+<%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"},
+                                class: "btn btn-xs btn-danger" %>
+
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>                       

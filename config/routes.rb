@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root 'pages#index'
+
+  resources :posts do
+    resources :comments
+  end
+  
+  devise_for :users
+
+  get 'persons/profile'
+
+  get 'persons/profile', as: 'user_root'
+
+  get 'about', to: 'pages#about'
+
 end
