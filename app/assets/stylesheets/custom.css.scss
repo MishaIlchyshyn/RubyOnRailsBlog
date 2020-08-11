@@ -111,3 +111,20 @@ $navbar-default-bg: black;
     color: #f50101;
   }
 }
+
+.comments,
+.add-comment {
+  margin-top: 100px;
+  h2 {
+    font-size: 18px;
+  }
+  .nick-name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+.add-comment {
+  .comment-text {
+    height: 200px;
+  }
+}
