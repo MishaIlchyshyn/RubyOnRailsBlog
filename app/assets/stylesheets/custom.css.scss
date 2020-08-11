@@ -50,3 +50,64 @@ $navbar-default-bg: black;
 .navbar {
   border-radius: 0;
 }
+
+.auth-container {
+  width: 60%;
+  margin: 50px auto;
+}
+.auth {
+  border: 1px solid black;
+  padding: 40px 35px;
+  border-radius: 5px;
+  h2 {
+    text-align: center;
+    margin: 0 0 30px 0;
+  }
+  label {
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  .sign-up-btn,
+  .login-btn {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    background: #2f2c2c;
+    color: white;
+    border-radius: 5px;
+    margin-top: 25px;
+    transition: 0.3s;
+    &:hover {
+      background: #000000;
+      color: #fff;
+    }
+  }
+}
+.link-to-login,
+.link-to-register {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: block;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  background: #2f2c2c;
+  color: #fff;
+  transition: 0.3s;
+  &:hover {
+    background: #000000;
+    color: #fff;
+  }
+}
+
+.error-block {
+  border: 1px solid #f50101;
+  width: 60%;
+  padding: 10px 30px;
+  margin: auto;
+  ul {
+    color: #f50101;
+  }
+}
