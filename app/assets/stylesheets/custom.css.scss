@@ -18,12 +18,15 @@ $navbar-default-bg: black;
 }
 
 .well {
-  min-height: 250px;
+  min-height: 379px;
+  position: relative;
 }
 
 .article-actions {
   border-top: 1px solid #eaeaea;
   padding-top: 5px;
+  position: absolute;
+  bottom: 42px;
 }
 .article-title {
   font-weight: bold;
