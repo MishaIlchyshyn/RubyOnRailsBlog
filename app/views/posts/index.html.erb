@@ -8,23 +8,29 @@
                     <div class="article-title">
                         <%= link_to post.title, post_path(post) %>
                         <div class="post-img">
-                            <%= link_to(image_tag(post.image.small_thumb.url, alt: 'image post'), posts_path) if post.image? %>
+                            <%= link_to(image_tag(post.image.small_thumb.url, alt: 'image post'), post_path(post)) if post.image? %>
                         </div>
                     </div>
                     <div class="article-body">
                         <%= truncate(post.description, length: 100) %>
                     </div>
                     <div class="article-actions">
-                        <%= link_to "Edit", edit_post_path(post), class: "btn btn-xs btn-primary" %>
-                        <%= link_to "Delete", post_path(post), method: :delete, 
-                            data: { confirm: "Are you sure you want to delete this post?"}, 
-                            class: "btn btn-xs btn-danger" %>
+                        <div class="edit-delete">
+                            <%= link_to "Edit", edit_post_path(post), class: "btn btn-xs btn-primary" %>
+                            <%= link_to "Delete", post_path(post), method: :delete, 
+                                data: { confirm: "Are you sure you want to delete this post?"}, 
+                                class: "btn btn-xs btn-danger" %>
+                        </div>
 
-                        <%- unless current_user.favorite_posts.exists?(id: post.id) -%>
-                        <%= link_to 'Add to favorites', favorite_posts_path(post_id: post.id), method: :post %>
-                        <%- else -%>
-                        <%= link_to 'Remove from favorites', favorite_post_path(post), method: :delete %>
-                        <%- end -%>
+                        <div class="favorite">
+                            <% if user_signed_in? %>
+                                <%- unless current_user.favorite_posts.exists?(id: post.id) -%>
+                                    <%= link_to 'Add to favorites', favorite_posts_path(post_id: post.id), method: :post %>
+                                <%- else -%>
+                                    <%= link_to 'Remove from favorites', favorite_post_path(post), method: :delete %>
+                                <%- end -%>
+                            <% end %>
+                        </div>
                     </div>
                 </div>
             </div>

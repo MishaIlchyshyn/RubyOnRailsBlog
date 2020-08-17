@@ -1,8 +1,9 @@
 class FavoritePostsController < ApplicationController
-    before_action :set_post
-
+    before_action :set_post, only: [:create, :destroy]
+    before_action :authenticate_user!
+    
     def index
-        @favorites = Favorite.all
+        @favorite_posts = current_user.favorite_posts
     end
 
     def create

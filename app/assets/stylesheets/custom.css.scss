@@ -27,6 +27,13 @@ $navbar-default-bg: black;
   padding-top: 5px;
   position: absolute;
   bottom: 42px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  .edit-delete {
+  }
+  .favorite {
+  }
 }
 .article-title {
   font-weight: bold;
@@ -138,5 +145,11 @@ $navbar-default-bg: black;
 .add-comment {
   .comment-text {
     height: 200px;
+  }
+}
+
+.create-post {
+  h1 {
+    text-align: center;
   }
 }
