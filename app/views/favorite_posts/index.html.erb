@@ -24,7 +24,7 @@
 
                         <div class="favorite">
                             <% if user_signed_in? %>
-                                    <%= link_to 'Remove from favorites', favorite_post_path(favorite_post), method: :delete %>
+                                    <%= link_to raw('<i class="fas fa-star favorite"></i>'), favorite_post_path(favorite_post), method: :delete %>
                             <% end %>
                         </div>
                     </div>
