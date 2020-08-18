@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+  resources :favorite_posts, only: [:index, :create, :destroy]
   
   devise_for :users
 

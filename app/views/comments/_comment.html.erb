@@ -1,15 +1,13 @@
-<div>
-    <h3>Commenter:</h3>
+<h3 class="nick-name">
     <%= comment.commenter %>
-</div>
+</h3>
 
 <div>
-    <h3>Comment:</h3>
     <%= comment.body %>
 </div>
 
 <div>
     <%= link_to 'Delete Comment', [comment.post, comment],
-                                    method: :delete,
-                                    data: { confirm: 'Are you sure' } %>
+        method: :delete, data: { confirm: 'Are you sure' }, 
+        class: "btn btn-xs btn-danger" %>
 </div>

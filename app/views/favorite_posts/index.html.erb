@@ -1,0 +1,35 @@
+<h1 align="center" style="padding-bottom: 50px">Favorite posts</h1>
+
+<div class="container">
+    <div class="row">
+        <% @favorite_posts.each do |favorite_post| %>
+            <div class="col-xs-4">
+                <div class="well well-lg">
+                    <div class="article-title">
+                        <%= link_to favorite_post.title, post_path(favorite_post) %>
+                        <div class="post-img">
+                            <%= link_to(image_tag(favorite_post.image.small_thumb.url, alt: 'image post'), post_path(favorite_post)) if favorite_post.image? %>
+                        </div>
+                    </div>
+                    <div class="article-body">
+                        <%= truncate(favorite_post.description, length: 100) %>
+                    </div>
+                    <div class="article-actions">
+                        <div class="edit-delete">
+                            <%= link_to "Edit", edit_post_path(favorite_post), class: "btn btn-xs btn-primary" %>
+                            <%= link_to "Delete", post_path(favorite_post), method: :delete, 
+                                data: { confirm: "Are you sure you want to delete this post?"}, 
+                                class: "btn btn-xs btn-danger" %>
+                        </div>
+
+                        <div class="favorite">
+                            <% if user_signed_in? %>
+                                    <%= link_to 'Remove from favorites', favorite_post_path(favorite_post), method: :delete %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
