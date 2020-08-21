@@ -28,6 +28,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
+gem 'punching_bag'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

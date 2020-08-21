@@ -5,6 +5,7 @@ $navbar-default-bg: black;
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "./actiontext.scss";
 
 #logo {
   float: left;
@@ -162,4 +163,9 @@ $navbar-default-bg: black;
 
 .favorite {
   color: #d0bd1b;
+}
+
+.views {
+  color: #9c9c9c;
+  padding-left: 15px;
 }

@@ -6,9 +6,12 @@
             <hr/>
             <%= simple_format(@post.description) %>
 
-            <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-xs btn-primary" %>
-            <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"},
+            <div class="edit-delete">
+                <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-xs btn-primary" %>
+                <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"},
                                             class: "btn btn-xs btn-danger" %>
+                <span class="views"><i class="far fa-eye"></i> <%= @post.hits %></span>
+            </div>
         </div>
     </div>
 
