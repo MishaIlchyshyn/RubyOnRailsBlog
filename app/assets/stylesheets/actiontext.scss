@@ -36,3 +36,10 @@
     }
   }
 }
+
+trix-editor {
+  &.form-control {
+    min-height: 220px;
+    height: auto;
+  }
+}

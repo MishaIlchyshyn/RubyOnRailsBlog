@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="article-body">
-                        <%= truncate(post.description, length: 100) %>
+                        <%= strip_tags(post.body.to_s.truncate(200)) %>
                     </div>
                     <div class="article-actions">
                         <div class="edit-delete">

@@ -4,7 +4,7 @@
             <h2 align="center"><%= @post.title %></h2>
             <div class="post-img"><%= image_tag(@post.image.thumb.url, alt: 'Image') if @post.image? %></div>
             <hr/>
-            <%= simple_format(@post.description) %>
+            <%= @post.body %>
 
             <div class="edit-delete">
                 <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-xs btn-primary" %>
