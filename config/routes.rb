@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   devise_for :users
 
+  get 'tags/:tag', to: 'posts#index', as: :tag
+
   get 'persons/profile'
 
   get 'persons/profile', as: 'user_root'
