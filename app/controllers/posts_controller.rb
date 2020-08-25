@@ -6,7 +6,7 @@ class PostsController < ApplicationController
         if params[:tag]
             @posts = Post.tagged_with(params[:tag])
         else 
-            @posts = Post.all
+            @posts = Post.kept
         end
     end
     
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     end
 
     def destroy
-        @post.destroy
+        @post.discard
         flash[:success] = "Post was deleted"
         redirect_to posts_path
     end

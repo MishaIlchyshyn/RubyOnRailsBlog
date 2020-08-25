@@ -95,6 +95,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    discard (1.2.0)
+      activerecord (>= 4.2, < 7)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.13.1)
@@ -250,6 +252,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave (~> 2.0)
   devise
+  discard
   font-awesome-sass
   jbuilder (~> 2.7)
   jquery-rails

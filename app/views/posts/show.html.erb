@@ -8,8 +8,16 @@
 
             <div class="edit-delete">
                 <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-xs btn-primary" %>
-                <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"},
+
+                <% if @post.discarded? %>
+                    <%= link_to "Put Back", discard_post_path(@post), method: :put, 
+                                data: { confirm: "Are you sure you want to put undiscard this post?"}, 
+                                class: "btn btn-xs btn-danger" %>
+                    <% else %>
+                        <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"},
                                             class: "btn btn-xs btn-danger" %>
+                <% end %>
+
                 <span class="views"><i class="far fa-eye"></i> <%= @post.hits %></span>
             </div>
         </div>

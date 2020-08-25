@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
 
   resources :favorite_posts, only: [:index, :create, :destroy]
+
+  resources :discard_posts
   
   devise_for :users
 

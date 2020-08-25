@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_153058) do
+ActiveRecord::Schema.define(version: 2020_08_25_104327) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 2020_08_24_153058) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "image"
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_posts_on_discarded_at"
   end
 
   create_table "punches", force: :cascade do |t|

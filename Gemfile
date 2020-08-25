@@ -30,6 +30,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem 'punching_bag'
 gem 'acts-as-taggable-on'
+gem 'discard'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

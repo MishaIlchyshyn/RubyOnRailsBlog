@@ -1,0 +1,29 @@
+<h1 align="center" style="padding-bottom: 50px">Discarded posts</h1>
+
+<div class="container">
+    <div class="row">
+        <% @discard_posts.each do |discard_post| %>
+            <div class="col-xs-4">
+                <div class="well well-lg">
+                    <div class="article-title">
+                        <%= link_to discard_post.title.truncate(20), post_path(discard_post), title: discard_post.title %>
+                        <div class="post-img">
+                            <%= link_to(image_tag(discard_post.image.small_thumb.url, alt: 'image post'), post_path(discard_post)) if discard_post.image? %>
+                        </div>
+                    </div>
+                    <div class="article-body">
+                        <%= strip_tags(discard_post.body.to_s.truncate(200)) %>
+                    </div>
+                    <div class="article-actions">
+                        <div class="edit-delete">
+                            <%= link_to "Edit", edit_post_path(discard_post), class: "btn btn-xs btn-primary" %>
+                            <%= link_to "Put Back", discard_post_path(discard_post), method: :put, 
+                                data: { confirm: "Are you sure you want to undiscard this post?"}, 
+                                class: "btn btn-xs btn-danger" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+    include Discard::Model
     acts_as_punchable
     has_rich_text :body
     has_many :comments, dependent: :destroy
