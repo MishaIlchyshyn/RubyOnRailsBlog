@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_104327) do
+ActiveRecord::Schema.define(version: 2020_08_26_130358) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -43,10 +43,6 @@ ActiveRecord::Schema.define(version: 2020_08_25_104327) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "articles", force: :cascade do |t|
-    t.string "test"
-  end
-
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
     t.text "body"
@@ -57,9 +53,9 @@ ActiveRecord::Schema.define(version: 2020_08_25_104327) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "favorited_type", null: false
-    t.integer "favorited_id", null: false
+    t.integer "user_id"
+    t.string "favorited_type"
+    t.integer "favorited_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited_type_and_favorited_id"
@@ -73,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_104327) do
     t.datetime "updated_at"
     t.string "image"
     t.datetime "discarded_at"
+    t.integer "comments_count"
     t.index ["discarded_at"], name: "index_posts_on_discarded_at"
   end
 
@@ -120,6 +117,11 @@ ActiveRecord::Schema.define(version: 2020_08_25_104327) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -128,6 +130,5 @@ ActiveRecord::Schema.define(version: 2020_08_25_104327) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
-  add_foreign_key "favorites", "users"
   add_foreign_key "taggings", "tags"
 end
