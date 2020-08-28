@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :favorite_posts, only: [:index, :create, :destroy]
 
-  resources :discard_posts
+  resources :discard_posts, only: [:index, :update]
   
   devise_for :users
 

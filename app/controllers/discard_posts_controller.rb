@@ -1,4 +1,6 @@
 class DiscardPostsController < ApplicationController
+    before_action :authenticate_user!
+
     def index
         @discard_posts = Post.discarded
     end

@@ -3,7 +3,11 @@ class FavoritePostsController < ApplicationController
     before_action :authenticate_user!
     
     def index
-        @favorite_posts = current_user.favorite_posts
+        @favorite_posts = []
+        current_user.favorite_posts.each do |favorite_post|
+            next if favorite_post.discarded? == true
+            @favorite_posts << favorite_post
+        end    
     end
 
     def create
