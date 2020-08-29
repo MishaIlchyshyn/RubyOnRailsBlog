@@ -3,6 +3,9 @@ $navbar-default-bg: black;
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "./actiontext.scss";
 
 #logo {
   float: left;
@@ -18,7 +21,7 @@ $navbar-default-bg: black;
 }
 
 .well {
-  min-height: 379px;
+  min-height: 440px;
   position: relative;
 }
 
@@ -30,10 +33,6 @@ $navbar-default-bg: black;
   display: flex;
   justify-content: space-between;
   width: 80%;
-  .edit-delete {
-  }
-  .favorite {
-  }
 }
 .article-title {
   font-weight: bold;
@@ -152,4 +151,17 @@ $navbar-default-bg: black;
   h1 {
     text-align: center;
   }
+}
+
+.add-to-favorite {
+  color: #808080;
+}
+
+.favorite {
+  color: #d0bd1b;
+}
+
+.views {
+  color: #9c9c9c;
+  padding-left: 15px;
 }

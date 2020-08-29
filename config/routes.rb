@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   end
 
   resources :favorite_posts, only: [:index, :create, :destroy]
+
+  resources :discard_posts, only: [:index, :update]
   
   devise_for :users
+
+  get 'tags/:tag', to: 'posts#index', as: :tag
 
   get 'persons/profile'
 

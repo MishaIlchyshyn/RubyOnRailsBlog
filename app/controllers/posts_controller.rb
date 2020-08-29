@@ -3,7 +3,11 @@ class PostsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
 
     def index
-        @posts = Post.all
+        if params[:tag]
+            @posts = Post.tagged_with(params[:tag])
+        else 
+            @posts = Post.kept
+        end
     end
     
     def new
@@ -22,6 +26,7 @@ class PostsController < ApplicationController
     end
 
     def show
+        @post.punch(request)
     end
 
     def edit
@@ -38,19 +43,18 @@ class PostsController < ApplicationController
     end
 
     def destroy
-        @post.destroy
+        @post.discard
         flash[:success] = "Post was deleted"
         redirect_to posts_path
     end
 
     private
         def post_params
-            params.require(:post).permit(:title, :description, :image)
+            params.require(:post).permit(:title, :body, :image, :tag_list)
         end
 
     private 
         def set_post
-            @post = Post.find(params[:id])
+            @post = Post.includes(:comments).find(params[:id])
         end
-
 end

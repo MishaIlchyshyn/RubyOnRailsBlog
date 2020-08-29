@@ -14,16 +14,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Posts', posts_path %></li>
-        <li><%= link_to 'Favorite Posts', favorite_posts_path %></li>
-        <li><%= link_to 'Create Post', new_post_path %></li>
+        <li><%= link_to t('navigation.links.posts'), posts_path %></li>
+        <li><%= link_to t('navigation.links.favorite_posts'), favorite_posts_path %></li>
+        <li><%= link_to t('navigation.links.discarded_posts'), discard_posts_path %></li>
+        <li><%= link_to t('navigation.links.create_post'), new_post_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to t('navigation.links.logout'), destroy_user_session_path, :method => :delete %></li>
         <% else %>
-          <li><%= link_to 'Login', new_user_session_path %></li>
-          <li><%= link_to 'Register', new_user_registration_path %></li>
+          <li><%= link_to t('navigation.links.register'), new_user_session_path %></li>
+          <li><%= link_to t('navigation.links.login'), new_user_registration_path %></li>
         <% end %>
       </ul>
     </div>

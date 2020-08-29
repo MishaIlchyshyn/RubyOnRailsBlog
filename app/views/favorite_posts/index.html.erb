@@ -1,4 +1,4 @@
-<h1 align="center" style="padding-bottom: 50px">Favorite posts</h1>
+<h1 align="center" style="padding-bottom: 50px"><%= t('pages.titles.favorite_posts') %></h1>
 
 <div class="container">
     <div class="row">
@@ -6,13 +6,13 @@
             <div class="col-xs-4">
                 <div class="well well-lg">
                     <div class="article-title">
-                        <%= link_to favorite_post.title, post_path(favorite_post) %>
+                        <%= link_to favorite_post.title.truncate(20), post_path(favorite_post), title: favorite_post.title %>
                         <div class="post-img">
                             <%= link_to(image_tag(favorite_post.image.small_thumb.url, alt: 'image post'), post_path(favorite_post)) if favorite_post.image? %>
                         </div>
                     </div>
                     <div class="article-body">
-                        <%= truncate(favorite_post.description, length: 100) %>
+                        <%= strip_tags(favorite_post.body.to_s.truncate(200)) %>
                     </div>
                     <div class="article-actions">
                         <div class="edit-delete">
@@ -24,7 +24,7 @@
 
                         <div class="favorite">
                             <% if user_signed_in? %>
-                                    <%= link_to 'Remove from favorites', favorite_post_path(favorite_post), method: :delete %>
+                                    <%= link_to raw('<i class="fas fa-star favorite"></i>'), favorite_post_path(favorite_post), method: :delete %>
                             <% end %>
                         </div>
                     </div>

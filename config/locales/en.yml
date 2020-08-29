@@ -30,4 +30,22 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  posts:
+    links:
+      put_back: "Put back"
+  navigation:
+    links:
+      posts: "Posts"
+      favorite_posts: "Favorite Posts"
+      discarded_posts: "Discarded Posts"
+      create_post: "Create Post"
+      login: "Login"
+      register: "Register"
+      logout: "Logout"
+  pages:
+    titles:
+      all_posts: "All Posts"
+      favorite_posts: "Favorite Posts"
+      discarded_posts: "Discarded Posts"
+      create_post: "Create Post"
+      edit_post: "Edit Post"

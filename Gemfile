@@ -22,11 +22,15 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'font-awesome-sass'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
+gem 'punching_bag'
+gem 'acts-as-taggable-on'
+gem 'discard'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

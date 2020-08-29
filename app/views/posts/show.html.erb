@@ -4,18 +4,29 @@
             <h2 align="center"><%= @post.title %></h2>
             <div class="post-img"><%= image_tag(@post.image.thumb.url, alt: 'Image') if @post.image? %></div>
             <hr/>
-            <%= simple_format(@post.description) %>
+            <%= @post.body %>
 
-            <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-xs btn-primary" %>
-            <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"},
+            <div class="edit-delete">
+                <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-xs btn-primary" %>
+
+                <% if @post.discarded? %>
+                    <%= link_to "Put Back", discard_post_path(@post), method: :put, 
+                                data: { confirm: "Are you sure you want to put undiscard this post?"}, 
+                                class: "btn btn-xs btn-danger" %>
+                    <% else %>
+                        <%= link_to 'Delete', post_path(@post), method: :delete, data: {confirm: "Are you sure?"},
                                             class: "btn btn-xs btn-danger" %>
+                <% end %>
+
+                <span class="views"><i class="far fa-eye"></i> <%= @post.hits %></span>
+            </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-xs-8">
             <div class="comments">
-                <h2>Comments:</h2>
+                <h2>Comments: <%= @post.comments_count %></h2>
                 <hr />
 
                 <%= render @post.comments %>
