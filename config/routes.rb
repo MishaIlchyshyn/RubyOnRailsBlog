@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   
   devise_for :users
 
+  devise_for :admins
+
+  resources :admin, only: [:index]
+
   get 'tags/:tag', to: 'posts#index', as: :tag
 
   get 'persons/profile'
