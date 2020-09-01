@@ -63,6 +63,7 @@ $navbar-default-bg: black;
 }
 .navbar {
   border-radius: 0;
+  margin-bottom: 0px;
 }
 
 .auth-container {
@@ -164,4 +165,56 @@ $navbar-default-bg: black;
 .views {
   color: #9c9c9c;
   padding-left: 15px;
+}
+
+/* style to admin panel */
+.sidebar {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 200px;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #37474f;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  .sidebar-nav {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+  }
+  .sidebar-nav__elem {
+    border-bottom: 1px solid #455a64;
+    color: #cfd8dc;
+    font-size: 14px;
+    transition: 0.3s;
+    position: relative;
+    &:hover {
+      background-color: #2b383e;
+      cursor: pointer;
+    }
+    a {
+      color: #cfd8dc;
+      text-decoration: none;
+      display: block;
+      height: 50px;
+      padding-left: 50px;
+      line-height: 50px;
+    }
+    i {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translate(0, -50%);
+    }
+  }
+}
+
+.wrapper {
+  margin-left: 200px;
+  position: relative;
+  min-height: 100%;
 }

@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <h1>Posts</h1>
+
+    <div class="inbox">
+        <div class="inbox-bx container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-stripped">
+                        <% @posts.each do |post| %>
+                            <tr>
+                                <td><%= link_to(image_tag(post.image.small_thumb.url, alt: 'image post'), post_path(post)) if post.image? %></td>
+                                <td><%= link_to post.title.truncate(20), post_path(post), title: post.title %></td>
+                                <td><%= current_user.email %></td>
+                                <td><%= post.created_at.strftime("%m.%m.%Y  %k:%M") %></td>
+                                <td><span class="views"><i class="far fa-eye"></i> <%= post.hits %></span></td>
+                            </tr>
+                        <% end %>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

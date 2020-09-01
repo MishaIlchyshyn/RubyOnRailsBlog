@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to t('admin.links.logo'), admin_posts_path, class: "navbar-brand", id: "logo" %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to t('admin.links.logout'), destroy_user_session_path, :method => :delete %></li>
+        <% else %>
+          <li><%= link_to t('navigation.links.login'), new_user_session_path %></li>
+          <li><%= link_to t('navigation.links.register'), new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

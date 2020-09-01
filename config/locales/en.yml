@@ -49,3 +49,7 @@ en:
       discarded_posts: "Discarded Posts"
       create_post: "Create Post"
       edit_post: "Edit Post"
+  admin:
+    links:
+      logo: "Admin Panel"
+      logout: "Logout"
