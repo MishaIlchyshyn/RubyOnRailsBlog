@@ -53,3 +53,12 @@ en:
     links:
       logo: "Admin Panel"
       logout: "Logout"
+      posts: "Posts"
+      comments: "Comments"
+    table_title:
+      title_post: "Title post"
+      name: "Name"
+      user: "User"
+      date_create: "Date create"
+      views: "Views"
+      body_comment: "Body comment"

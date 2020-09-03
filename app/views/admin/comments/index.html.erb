@@ -1,22 +1,26 @@
 <div class="wrapper">
-    <h1>Comments</h1>
+    <h1><%= t('admin.links.comments') %></h1>
 
     <div class="inbox">
         <div class="inbox-bx container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                <table class="table table-stripped">
-                    <tbody>
-                    <tr>
-                        <td><input type="checkbox"/></td>
-                        <td><i class="fa fa-star-o"></i></td>
-                        <td>Dan Glenn</td>
-                        <td>[ptcuser-announcements] - PTC/USER Expert Speaker Series Webinar March 9, 2017 11AM (EST)</td>
-                        <td><i class="fa fa-paperclip"></i></td>
-                        <td>Mar 10</td>
-                    </tr>
-                    </tbody>
-                </table>
+                    <table class="table table-stripped">
+                        <tr>
+                            <th><%= t('admin.table_title.title_post') %></th>
+                            <th style="width: 400px"><%= t('admin.table_title.body_comment') %></th>
+                            <th><%= t('admin.table_title.user') %></th>
+                            <th><%= t('admin.table_title.date_create') %></th>
+                        </tr>
+                        <% @comments.each do |comment| %>
+                            <tr>
+                                <td><%= link_to comment.post.title.truncate(20), post_path(comment.post), title: comment.post.title %></td>
+                                <td><%= comment.body %></td>
+                                <td><%= comment.commenter %></td>
+                                <td><%= comment.created_at.strftime("%m.%m.%Y  %k:%M") %></td>
+                            </tr>
+                        <% end %>
+                    </table>
                 </div>
             </div>
         </div>

@@ -6,9 +6,11 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  namespace :admin do
-    resources :posts
-    resources :comments
+  constraints subdomain: 'admin' do
+    namespace :admin do
+      resources :posts, only: [:index]
+      resources :comments, only: [:index]
+    end
   end
 
   resources :favorite_posts, only: [:index, :create, :destroy]
