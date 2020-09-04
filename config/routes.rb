@@ -6,11 +6,20 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  constraints subdomain: 'admin' do
+    namespace :admin do
+      resources :posts, only: [:index]
+      resources :comments, only: [:index]
+    end
+  end
+
   resources :favorite_posts, only: [:index, :create, :destroy]
 
   resources :discard_posts, only: [:index, :update]
   
   devise_for :users
+
+  devise_for :admins
 
   get 'tags/:tag', to: 'posts#index', as: :tag
 

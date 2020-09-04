@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12"> 
-            <h2 align="center"><%= @post.title %></h2>
+            <h1 align="center" class="page-title"><%= @post.title %></h1>
             <div class="post-img"><%= image_tag(@post.image.thumb.url, alt: 'Image') if @post.image? %></div>
             <hr/>
             <%= @post.body %>
