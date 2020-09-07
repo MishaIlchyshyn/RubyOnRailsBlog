@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+    xmlns:o="urn:schemas-microsoft-com:office:office"
+    xmlns:x="urn:schemas-microsoft-com:office:excel"
+    xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+    xmlns:html="http://www.w3.org/TR/REC-html40">
+    <Worksheet ss:Name="Sheet1">
+        <Table>
+            <Row>
+                <Cell><Data ss:Type="String">Id</Data></Cell>
+                <Cell><Data ss:Type="String">Title post</Data></Cell>
+                <Cell><Data ss:Type="String">Body comment</Data></Cell>
+                <Cell><Data ss:Type="String">User</Data></Cell>
+                <Cell><Data ss:Type="String">Date Create</Data></Cell>
+            </Row>
+        <% @comments.each do |comment| %>
+            <Row>
+                <Cell><Data ss:Type="Number"><%= comment.id %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= comment.post.title %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= comment.body %></Data></Cell>
+                <Cell><Data ss:Type="String"><%= comment.commenter %></Data></Cell>
+                <Cell><Data ss:Type="Number"><%= comment.created_at.strftime("%m.%m.%Y  %k:%M") %></Data></Cell>
+            </Row>
+        <% end %>
+        </Table>
+    </Worksheet>
+</Workbook>

@@ -1,6 +1,16 @@
 <div class="wrapper">
     <h1><%= t('admin.links.comments') %></h1>
 
+    <div class="dropdown">
+        <button class="dropbtn">Export... 
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <%= link_to 'Export .csv', admin_comments_path(format: 'csv') %>
+            <%= link_to 'Export .xls', admin_comments_path(format: 'xls') %>
+        </div>
+    </div> 
+
     <div class="inbox">
         <div class="inbox-bx container-fluid">
             <div class="row">
