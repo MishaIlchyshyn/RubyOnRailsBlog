@@ -31,6 +31,7 @@ gem 'mini_magick'
 gem 'punching_bag'
 gem 'acts-as-taggable-on'
 gem 'discard'
+gem 'pundit'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
