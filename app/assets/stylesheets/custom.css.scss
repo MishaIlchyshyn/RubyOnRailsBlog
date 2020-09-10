@@ -2,7 +2,7 @@ $navbar-default-bg: black;
 
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
-@import "bootstrap";
+@import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "./actiontext.scss";
@@ -21,7 +21,7 @@ $navbar-default-bg: black;
 }
 
 .page-title {
-  padding: 50px 0;
+  margin: 85px 0 25px 0;
   text-align: center;
 }
 
@@ -44,8 +44,9 @@ $navbar-default-bg: black;
   position: absolute;
   bottom: 42px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
 }
 .article-title {
   font-weight: bold;
@@ -190,7 +191,7 @@ $navbar-default-bg: black;
   z-index: 1000;
   position: fixed;
   left: 250px;
-  top: 52px;
+  top: 66px;
   width: 200px;
   height: 100%;
   margin-left: -250px;
@@ -239,46 +240,49 @@ $navbar-default-bg: black;
   margin-top: 65px;
 }
 
-/* Admin button for export posts */
-.dropdown {
-  display: inline-block;
+/* Admin button for export-import posts-comments */
+.export-import {
+  display: flex;
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 5%;
 }
 
-.dropdown .dropbtn {
+.import-btn,
+.export-btn {
   font-size: 12px;
+  border: none;
   border-radius: 5px;
   outline: none;
   color: white;
   background: #37474f;
-  font-family: inherit;
-  margin: 0;
+  margin: 0px 3px;
+  display: block;
 }
 
-.dropdown-content {
+.export-type {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
+  min-width: 100px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-.dropdown-content a {
+.export-type a {
   float: none;
   color: black;
+  font-size: 12px;
   padding: 8px 12px;
   text-decoration: none;
   display: block;
   text-align: left;
 }
 
-.dropdown-content a:hover {
+.export-type a:hover {
   background-color: #ddd;
 }
 
-.dropdown:hover .dropdown-content {
+.export:hover .export-type {
   display: block;
 }

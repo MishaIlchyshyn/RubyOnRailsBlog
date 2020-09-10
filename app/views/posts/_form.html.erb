@@ -1,13 +1,13 @@
 <%= render 'shared/errors', obj: @post %>
 
-<div class="row">
-    <div class="col-xs-12">
+<div class="row justify-content-md-center">
+    <div class="col-lg-10">
         <%= form_for(@post, :html => {class: "form-horizontal", role: "form"}) do |f| %>
             <div class="form-group">
                 <div class="control-label col-sm-2">
                     <%= f.label :title %>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-12">
                     <%= f.text_field :title, class: "form-control", placeholder: "Title of post",
                     autofocus: true %>
                 </div>
@@ -16,7 +16,7 @@
                 <div class="control-label col-sm-2">
                     <%= f.label :body %>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-12">
                     <%= f.rich_text_area :body, class: "form-control", placeholder: "Body of post" %>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="control-label col-sm-2">
                     <%= f.label :image %>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-12">
                     <%= f.file_field :image %>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                 <div class="control-label col-sm-2">
                     <%= f.label :tags %>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-12">
                     <%= f.text_field :tag_list, class: "form-control", placeholder: "Input tags through commas (superhero, commic, ...)" %>
                 </div>
             </div>

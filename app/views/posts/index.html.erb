@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <% @posts.each do |post| %>
-            <div class="col-xs-4">
+            <div class="col-lg-4">
                 <div class="well well-lg">
                     <div class="article-title">
                         <%= link_to post.title.truncate(20), post_path(post), title: post.title %>
@@ -42,8 +42,8 @@
         <% end %>
     </div>
 
-    <div class="row">
-        <div class="col-xs-8 col-sm-offset-2">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-8">
             <div class="all-tags">
                 <% tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class| %>
                     <%= link_to tag.name, tag_path(tag.name), class: css_class %>

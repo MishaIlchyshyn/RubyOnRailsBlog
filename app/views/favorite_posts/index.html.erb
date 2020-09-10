@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <% @favorite_posts.each do |favorite_post| %>
-            <div class="col-xs-4">
+            <div class="col-lg-4">
                 <div class="well well-lg">
                     <div class="article-title">
                         <%= link_to favorite_post.title.truncate(20), post_path(favorite_post), title: favorite_post.title %>

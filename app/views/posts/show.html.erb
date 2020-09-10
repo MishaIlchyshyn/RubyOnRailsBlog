@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-xs-12"> 
+        <div class="col-lg-12"> 
             <h1 align="center" class="page-title"><%= @post.title %></h1>
             <div class="post-img"><%= image_tag(@post.image.thumb.url, alt: 'Image') if @post.image? %></div>
             <hr/>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-8">
+        <div class="col-lg-8">
             <div class="comments">
                 <h2>Comments: <%= @post.comments_count %></h2>
                 <hr />
@@ -33,7 +33,7 @@
             </div>
         </div>  
 
-        <div class="col-xs-4">
+        <div class="col-lg-4">
             <div class="add-comment">
                 <h2>Add a comment:</h2>
                 <%= render 'comments/form' %> 

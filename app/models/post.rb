@@ -11,11 +11,19 @@ class Post < ActiveRecord::Base
     acts_as_taggable_on :tags
 
     def self.to_csv(options = {})
-        CSV.generate(options) do |csv|
-            csv << column_names
-            all.each do |post|
-                csv << post.attributes.values_at(*column_names)
+        attributes = %w{image title created_at updated_at}
+        
+        CSV.generate(headers: true) do |csv|
+            csv << attributes
+            all.find_each do |post|
+                csv << attributes.map{ |attr| post.send(attr) }
             end
+        end
+    end
+
+    def self.import(file)
+        CSV.foreach(file.path, headers: true) do |row|
+            Post.create! row.to_hash
         end
     end
 end

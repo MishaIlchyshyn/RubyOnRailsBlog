@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <% @discard_posts.each do |discard_post| %>
-            <div class="col-xs-4">
+            <div class="col-lg-4">
                 <div class="well well-lg">
                     <div class="article-title">
                         <%= link_to discard_post.title.truncate(20), post_path(discard_post), title: discard_post.title %>

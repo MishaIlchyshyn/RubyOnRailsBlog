@@ -32,6 +32,7 @@ gem 'punching_bag'
 gem 'acts-as-taggable-on'
 gem 'discard'
 gem 'pundit'
+gem 'popper_js'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -8,4 +8,9 @@ class Admin::PostsController < Admin::BaseController
             format.xls # { send_data @posts.to_csv(col_sep: "\t") }
         end
     end
+
+    def import
+        Post.import(params[:file])
+        redirect_to admin_posts_url, notice: "Posts imported."
+    end
 end

@@ -1,15 +1,43 @@
 <div class="wrapper">
     <h1><%= t('admin.links.comments') %></h1>
 
-    <div class="dropdown">
-        <button class="dropbtn">Export... 
-            <i class="fa fa-caret-down"></i>
+    <div class="export-import">
+        <button type="button" class="import-btn" data-toggle="modal" data-target="#myModal">
+            Import
         </button>
-        <div class="dropdown-content">
-            <%= link_to 'Export .csv', admin_comments_path(format: 'csv') %>
-            <%= link_to 'Export .xls', admin_comments_path(format: 'xls') %>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Import comments</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <%= form_tag import_admin_comments_path, multipart: true, remote: true do %>
+                            <%= file_field_tag :file %>
+                            <div class="modal-footer">
+                                <%= submit_tag "Import" %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div> 
+
+        <div class="export">
+            <button class="export-btn">Export... 
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="export-type">
+                <%= link_to 'Export .csv', admin_comments_path(format: 'csv') %>
+                <%= link_to 'Export .xls', admin_comments_path(format: 'xls') %>
+            </div>
+        </div> 
+    </div>
 
     <div class="inbox">
         <div class="inbox-bx container-fluid">
