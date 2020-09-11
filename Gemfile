@@ -33,6 +33,9 @@ gem 'acts-as-taggable-on'
 gem 'discard'
 gem 'pundit'
 gem 'popper_js'
+gem "roo"
+gem "iconv"
+gem 'roo-xls'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
